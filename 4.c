@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-void selection_sort(long long int a[], long long int n)
+void ssort(long long int a[], long long int n)
 {
     for (int i = 0; i < n - 1; i++)
     {
@@ -21,12 +21,12 @@ void selection_sort(long long int a[], long long int n)
     printf("\n");
     return;
 }
-void bubble_sort(long long int a[], long long int n)
+void bsort(long long int a[], long long int n)
 {
-    int counter = 1;
-    while (counter < n)
+    int ctr = 1;
+    while (ctr < n)
     {
-        for (int i = 0; i < n - counter; i++)
+        for (int i = 0; i < n - ctr; i++)
         {
             if (a[i] > a[i + 1])
             {
@@ -35,7 +35,7 @@ void bubble_sort(long long int a[], long long int n)
                 a[i + 1] = temp;
             }
         }
-        counter++;
+        ctr++;
     }
     printf("Bubble Sorted Array:\n");
     for (int i = 0; i < n; i++)
@@ -54,14 +54,14 @@ int main()
     clock_t start, end;
     long int t;
     start = clock();
-    selection_sort(a, n);
+    ssort(a, n);
     end = clock();
     t = end - start;
     printf("Total time elapsed for selection sort: %f\n", (double)t / (double)CLOCKS_PER_SEC);
     clock_t start2, end2;
     long int t2;
     start2 = clock();
-    bubble_sort(a, n);
+    bsort(a, n);
     end2 = clock();
     t2 = end2 - start2;
     printf("Total time elapsed for bubble sort: %f\n", (double)t2 / (double)CLOCKS_PER_SEC);
